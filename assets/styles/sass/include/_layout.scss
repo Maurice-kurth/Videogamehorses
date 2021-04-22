@@ -1,0 +1,51 @@
+html {
+  border-collapse: collapse;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  width: 100%;
+  border: 5px solid darkblue;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  width: 100%;
+  border: 5px solid rgb(5, 105, 43);
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+}
+
+main {
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  width: 100%;
+  max-width: $extra-large;
+}
+aside {
+  border: 5px solid orange;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+}
+section {
+  border: 5px solid lightblue;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

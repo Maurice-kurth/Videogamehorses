@@ -2,18 +2,37 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
+        <title>{% block title %}Bienvenue sur Videogame Horses!{% endblock %}</title>
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
+     {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+            {{ encore_entry_link_tags('app') }}
+
+            <!-- Renders a link tag (if your module requires any CSS)
+                 <link rel="stylesheet" href="/build/app.css"> -->
         {% endblock %}
 
         {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+        
         {% endblock %}
     </head>
+
+
     <body>
-        {% block body %}{% endblock %}
+    <header><h1>Menu Principal</h1></header>
+
+    <main>
+    <section>
+        {% block body %}
+      
+
+  {% block content %}
+        (Il faut remplacer le contenu - ceci vient de base.html.twig)
+    {% endblock %}
+        {% endblock %}
+        </section>
+        
+       <aside><h3>Sidebar</h3></aside>
+</main>
+        <footer><h1>Footer</h1></footer>
     </body>
 </html>
