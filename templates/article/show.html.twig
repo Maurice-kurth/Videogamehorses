@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{% block content %}
-<h1>{{article.titre}}</h1>
+  {% block content %}
+    <h1>{{article.titre}}</h1>
 
-<p>{{article.introduction}}</p>
-<p>{{article.contenu}}</p>
+    <p>{{article.introduction}}</p>
+    {{article.contenu}}
 
-
-<p> Note du jeu : {{article.note}}</p>
-{% endblock %}
+    <p>
+      Note du jeu :
+      {{article.note}}</p>
+  {% endblock %}
 {% endblock %}

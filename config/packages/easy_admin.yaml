@@ -1,0 +1,20 @@
+easy_admin:
+  entities:
+    # List the entity class name you want to manage
+
+    Article:
+      class: App\Entity\Article
+      form:
+        fields:
+          # ...
+          - { property: "titre", type: "text" }
+          - { property: "contenu", type: "fos_ckeditor" }
+          - { property: "note", type: "text" }
+    Comment:
+      class: App\Entity\Comment
+    Category:
+      class: App\Entity\Category
+  design:
+    form_theme:
+      - "@EasyAdmin/form/bootstrap_4.html.twig"
+      - "@FOSCKEditor/Form/ckeditor_widget.html.twig"

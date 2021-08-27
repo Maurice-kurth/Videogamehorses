@@ -1,39 +1,37 @@
-/* --------------------------------------- */
-/* ==Grillade : ultra light Grid Layout    */
-/* --------------------------------------- */
-// Grillade is heavily inspired by tailwindcss.com Grid utility classes
+/* -------------------------------------------------- */
+/* ==Grillade : système de micro-grille  de KNACSS   */
+/* ------------------------------------------------ */
+// Grillade est directement inspiré tailwindcss.com et de ses classes utilitaires
 
+// Les variables ci-dessous ne sont appliquées que si elles n'ont pas été renseignées
+// dans le fichiers de variables de KNACSS.
 
-// use these variables only for a standalone Grillade
-// in KNACSS, you shall modify variables file instead
-$grid-columns: 6 !default;
-
-@if variable_exists(spacers) {
-  $spacers: $spacers !global;
+@if variable_exists(grid-columns) {
+  $grid-columns: $grid-columns !global;
+} @else {
+  $grid-columns: 6 !global;
 }
-@else {
-  $spacers : (
-  '0' : 0,
-  '1' : .5rem,
-  '2' : .75rem,
-  '3' : 1rem,
-  '4' : 1.5rem,
-  '5' : 2rem,
-  '6' : 3rem,
-  '7' : 5rem,
-  'auto' : auto
+
+@if variable_exists(gaps) {
+  $gaps: $gaps !global;
+} @else {
+  $gaps: (
+    "0": 0,
+    "5": 0.313rem,
+    "10": 0.625rem,
+    "16": 1rem,
+    "20": 1.25rem,
+    "36": 2.25rem,
   ) !global;
 }
 
 @if variable_exists(breakpoints) {
   $breakpoints: $breakpoints !global;
-}
-@else {
-  $breakpoints : (
-  sm: 576px,
-  md: 768px,
-  lg: 1024px,
-  xl: 1330px
+} @else {
+  $breakpoints: (
+    sm: 576px,
+    md: 992px,
+    lg: 1330px,
   ) !global;
 }
 
@@ -42,33 +40,33 @@ $grid-columns: 6 !default;
 }
 // grid class for each breakpoint
 @each $bp, $bpv in $breakpoints {
-    @media (min-width: #{$bpv}) {
+  @media (min-width: #{$bpv}) {
     .#{$bp}\:grid {
       display: grid;
     }
   }
 }
 
-/* grid-template-columns classes */
+/* grid-template-columns initialisation */
 @for $i from 1 through $grid-columns {
-  
   .grid-cols-#{$i} {
     grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
   }
-  @each $bp, $bpv in $breakpoints {
-    
-    @media (min-width: #{$bpv}) {
+}
+
+/* grid-template-columns au sein des breakpoints */
+@each $bp, $bpv in $breakpoints {
+  @media (min-width: #{$bpv}) {
+    @for $i from 1 through $grid-columns {
       .#{$bp}\:grid-cols-#{$i} {
         grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
       }
     }
   }
-
 }
 
-/* gap classes */
-@each $key, $value in $spacers {
-  
+/* gap initialisation */
+@each $key, $value in $gaps {
   .gap-#{$key} {
     gap: $value;
   }
@@ -78,10 +76,12 @@ $grid-columns: 6 !default;
   .gap-y-#{$key} {
     row-gap: $value;
   }
+}
 
-  @each $bp, $bpv in $breakpoints {
-    
-    @media (min-width: #{$bpv}) {
+/* gap au sein des breakpoints */
+@each $bp, $bpv in $breakpoints {
+  @media (min-width: #{$bpv}) {
+    @each $key, $value in $gaps {
       .#{$bp}\:gap-#{$key} {
         gap: $value;
       }
@@ -93,12 +93,10 @@ $grid-columns: 6 !default;
       }
     }
   }
-
 }
 
-/* grid-items classes */
+/* grid-items initialisation */
 @for $i from 1 through $grid-columns {
-  
   .col-start-#{$i} {
     grid-column-start: #{$i};
   }
@@ -120,11 +118,14 @@ $grid-columns: 6 !default;
   .row-span-#{$i} {
     grid-row: span #{$i} / span #{$i};
   }
-    
-  // loop for each breakpoint
-  @each $bp, $bpv in $breakpoints {
-    
-    @media (min-width: #{$bpv}) {
+}
+
+/* grid-items au sein des breakpoints */
+@each $bp, $bpv in $breakpoints {
+  @media (min-width: #{$bpv}) {
+    @for $i from 1 through $grid-columns {
+      // loop for each breakpoint
+
       .#{$bp}\:col-start-#{$i} {
         grid-column-start: #{$i};
       }
@@ -148,5 +149,4 @@ $grid-columns: 6 !default;
       }
     }
   }
-
 }

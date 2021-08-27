@@ -4,7 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -31,19 +35,20 @@ class ArticleController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
 
         $article = new Article();
-        $article->setTitre('Article 1 - The Legend of Zelda : Breath of the Wild');
-        $article->setIntroduction('Sorti en 2017, Zelda BotW a impressionné le monde du jeu vidéo avec ses innovations. Et l\'équitation dans tout ça ?');
-        $article->setContenu('Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet');
-        $article->setNote(5);
+        $article->setTitre();
+        $article->setIntroduction();
+        $article->setContenu();
+        $article->setNote();
         // tell Doctrine you want to (eventually) save the Article (no queries yet)
         $entityManager->persist($article);
 
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
 
-        return new Response('Saved new article with id ' . $article->getId());
+        return new Response('Un nouvel article pour ' . $article->getTitre() . ' a été créé, son id est ' . $article->getId());
 
     }
+// ============= Cette fonction Affiche tous les articles dans la BDD ============= //
 
     /**
      * @Route("/article/list", name="article_list")
@@ -54,17 +59,17 @@ class ArticleController extends AbstractController
         // look for *all* Article objects
         $articles = $repository->findAll();
 
+        return $this->render('article/list.html.twig', ['articles' => $articles]);
+
     }
 
-    // ============= Cette fonction récupère l'article à partir de la BDD ============= //
+    // ============= Cette fonction récupère l'article à partir de l'ID dans la BDD ============= //
     /**
-     * @Route("/article/id/{id}", name="article_show")
+     * @Route("/article/{id}", name="article_show")
      */
     public function show(int $id): Response
     {
-        $article = $this->getDoctrine()
-            ->getRepository(Article::class)
-            ->find($id);
+        $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
 
         if (!$article) {
             throw $this->createNotFoundException(
@@ -79,6 +84,55 @@ class ArticleController extends AbstractController
         // return $this->render('article/show.html.twig', ['article' => $article]);
     }
 
-    // ============= Cette fonction Affiche tous les articles dans la BDD ============= //
+    // ============= Cette fonction Supprime l'article ============= //
+    /**
+     * @Route("/article/id/{id}/delete", name="article_delete")
+     */
+    public function delete(int $id): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $article = $entityManager->getRepository(Article::class)->find($id);
+
+        if (!$article) {
+            throw $this->createNotFoundException(
+                'No article found for id ' . $id
+            );
+        }
+
+        $entityManager->remove($article);
+
+        $entityManager->flush();
+
+        return new Response('L\'article  a été supprimé');
+    }
+
+    // ============= Cette fonction permet de créer un nouvel article  ============= //
+
+    /**
+     * @Route("/article/new/form", name="create_article_form")
+     */
+    public function createArticleForm(Request $request)
+    {
+        // you can fetch the EntityManager via $this->getDoctrine()
+        // or you can add an argument to the action: createArticle(EntityManagerInterface $entityManager)
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $article = new Article();
+        $form = $this->createFormBuilder($article)
+            ->add('Titre')
+            ->add('Introduction', TextareaType::class)
+            ->add('Contenu', CKEditorType::class) // Champ WYSIWIG
+            ->add('Note')
+            ->add('save', SubmitType::class, [
+                'label' => 'Enregistrer',
+            ])
+            ->getForm();
+
+        $form->handleRequest($request);
+        dump($article);
+        return $this->render('article/create.html.twig', [
+            'formArticle' => $form->createView(),
+        ]);
+    }
 
 }

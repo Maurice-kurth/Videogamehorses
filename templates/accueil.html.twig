@@ -1,7 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{% block content %}
-<h2 class="mt-3 text-center">Ceci est la page d'accueil</h2>
-{% endblock %}
+  {% block content %}
+    <h2 class="mt-3 text-center">Ceci est la page d'accueil</h2>
+
+    <p>
+      Voici des articles :
+    </p>
+
+    <div class="grid grid-cols-3">
+      {% for article in articles %}
+
+        <div class="article--card">
+          <h3>{{article.titre}}</h3>
+
+          <a href="{{path('article_show',{id:article.id})}}" class="btn">Voir l'article</a>
+        </div>
+
+      {% endfor %}
+    </div>
+  {% endblock %}
 {% endblock %}

@@ -1,9 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{% block content %}
+  {% block content %}
 
-<h1>Liste des articles : </h1>
+    <div class="grid grid-cols-6 mx-4 ">
+      <h1 class="col-span-6 text-center">Liste des articles :
+      </h1>
+      {% for article in articles %}
+        <div class="article-solo flex flex-col col-span-3">
+          <img src="{{article.image}}" alt="">
+          <h3 class="text-center">{{article.titre|e}}</h3>
+          <p>{{article.introduction}}</p>
+        </div>
+      {% endfor %}
 
-{% endblock %}
+    </div>
+  {% endblock %}
 {% endblock %}

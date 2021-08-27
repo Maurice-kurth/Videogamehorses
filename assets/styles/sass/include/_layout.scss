@@ -1,51 +1,78 @@
-html {
-  border-collapse: collapse;
+html,
+body {
+  box-sizing: border-box;
+  max-width: 100%;
 }
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: $vgh-sombre;
+  color: white;
+  margin: 0;
 }
 
 header {
-  width: 100%;
-  border: 5px solid darkblue;
+  width: auto;
   height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: url("./include/images/got.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 85%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 footer {
-  width: 100%;
-  border: 5px solid rgb(5, 105, 43);
+  width: auto;
   height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: auto;
+  background: rgba(129, 13, 13, 0.7);
 }
 
 main {
-  display: flex;
   margin: auto;
-  justify-content: space-between;
-  width: 100%;
-  max-width: $extra-large;
+  width: $large;
 }
 aside {
-  border: 5px solid orange;
-  width: 30%;
+  //border: 5px solid white;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70vh;
+  min-height: 70vh;
+  background: rgba(129, 13, 13, 0.7);
 }
 section {
-  border: 5px solid lightblue;
-  width: 70%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 5px solid white;
+  /*  display: flex;
+  align-items: center; 
+  justify-content: center;*/
+}
+
+h1,
+h2,
+h3,
+p,
+a,
+label {
+  color: white;
+  font-family: $font-family-base;
+}
+
+code a {
+  color: black;
+}
+
+form #form > div {
+  margin: 1rem 0;
+}
+
+form #form label {
+  margin-right: 2rem;
 }
