@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Comment;
+use App\Form\CommentType;
 use App\Repository\ArticleRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -67,17 +70,33 @@ class ArticleController extends AbstractController
     /**
      * @Route("/article/{id}", name="article_show")
      */
-    public function show(int $id): Response
+    public function show(int $id, Request $request, EntityManagerInterface $manager): Response
     {
         $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
 
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setCreatedAt(new \DateTime())
+                ->setArticle($article);
+            $manager->persist($comment);
+            $manager->flush();
+
+            return $this->redirectToRoute('article_show', ['id' => $article->getId()]);
+        }
         if (!$article) {
             throw $this->createNotFoundException(
                 'No article found for id ' . $id
             );
         }
 
-        return $this->render('article/show.html.twig', ['article' => $article]);
+        return $this->render('article/show.html.twig', [
+            'article' => $article,
+            'commentForm' => $form->createView(),
+
+        ]);
 
         // or render a template
         // in the template, print things with {{ article.name }}

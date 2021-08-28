@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Bienvenue sur Videogame Horses!{% endblock %}</title>
-        {% block stylesheets %}
-     {# 'app' must match the first argument to addEntry() in webpack.config.js #}
-            {{ encore_entry_link_tags('app') }}
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      {% block title %}Bienvenue sur Videogame Horses!{% endblock %}
+    </title>
+    {% block stylesheets %}
+      {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+      {{ encore_entry_link_tags('app') }}
 
-            <!-- Renders a link tag (if your module requires any CSS)
-                 <link rel="stylesheet" href="/build/app.css"> -->
-                 
-        {% endblock %}
+      <!-- Renders a link tag (if your module requires any CSS) <link rel="stylesheet" href="/build/app.css"> -->
 
-        {% block javascripts %}
-        
-        {% endblock %}
-    </head>
+    {% endblock %}
 
+    {% block javascripts %}{% endblock %}
+  </head>
 
-    <body>
-    <header><h1>Menu Principal</h1></header>
+  <body>
+    <header>
+      <h1>Menu Principal</h1>
+    </header>
 
     <main class="grid grid-cols-12 my-6 gap-5">
-    <section class="col-start-1 col-span-8 py-4 ">
+      <section class="col-start-1 col-span-8 py-4 ">
         {% block body %}
-      
 
-  {% block content %}
-        (Il faut remplacer le contenu - ceci vient de base.html.twig)
-    {% endblock %}
+          {% block content %}
+            (Il faut remplacer le contenu - ceci vient de base.html.twig)
+          {% endblock %}
         {% endblock %}
-        </section>
-        
-       
-       <aside class=" col-start-9 col-span-4">{% block aside %}<h3> Sidebar</h3> {% endblock %}</aside>
-      
-</main>
-        <footer><h1>Footer</h1></footer>
-    </body>
+      </section>
+
+      <aside class=" col-start-9 col-span-4">
+
+        {% include 'sidebar.html.twig' %}
+
+      </aside>
+
+    </main>
+    <footer>
+      <h1>Footer</h1>
+    </footer>
+  </body>
 </html>
