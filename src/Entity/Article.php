@@ -6,9 +6,11 @@ use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
+ * @Vich\Uploadable()
  */
 class Article
 {
@@ -25,7 +27,7 @@ class Article
     private $titre;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $introduction;
 
@@ -55,14 +57,26 @@ class Article
     private $createdAt;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $image;
+    private $thumbnail;
+
+    /**
+     * @Vich\UploadableField(mapping="post_thumbnails", fileNameProperty="thumbnail")
+     */
+    private $thumbnailFile;
 
     public function __construct()
     {
         $this->comments = new ArrayCollection();
         $this->categories = new ArrayCollection();
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
     public function getId(): ?int
@@ -180,21 +194,46 @@ class Article
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt(\DateTimeInterface$createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getThumbnail(): ?string
     {
-        return $this->image;
+        return $this->thumbnail;
     }
 
-    public function setImage(?string $image): self
+    public function setThumbnail(?string $thumbnail): self
     {
-        $this->image = $image;
+        $this->thumbnail = $thumbnail;
+
+        return $this;
+    }
+
+    public function getThumbnailFile()
+    {
+        return $this->thumbnailFile;
+    }
+
+    public function setThumbnailFile($thumbnailFile): void
+    {
+        $this->thumbnailFile = $thumbnailFile;
+        if ($thumbnailFile) {
+            $this->updatedAt = new \DateTime();
+        }
+
+    }
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface$updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

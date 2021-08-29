@@ -8,8 +8,12 @@ easy_admin:
         fields:
           # ...
           - { property: "titre", type: "text" }
+          - { property: "introduction", type: "textarea" }
           - { property: "contenu", type: "fos_ckeditor" }
-          - { property: "note", type: "text" }
+          - { property: "createdAt", type: "date" }
+          - { property: "thumbnailFile", type: "vich_image" }
+      list:
+        fields: ["titre", "createdAt", "introduction"]
     Comment:
       class: App\Entity\Comment
     Category:

@@ -3,9 +3,12 @@
 {% block body %}
   {% block content %}
     <h1>{{article.titre}}</h1>
-
+    {{dump(article)}}
+    <img src="{{article.thumbnail}}" alt="">
+    <img src="{{ vich_uploader_asset(article, 'thumbnailFile') }}" alt="{{ article.titre }}">
+    <img src="/uploads/files/{{article.thumbnail}}" alt="">
     <p>{{article.introduction}}</p>
-    {{article.contenu}}
+    {{article.contenu|raw}}
 
     <p>
       Note du jeu :

@@ -42,6 +42,7 @@ class ArticleController extends AbstractController
         $article->setIntroduction();
         $article->setContenu();
         $article->setNote();
+
         // tell Doctrine you want to (eventually) save the Article (no queries yet)
         $entityManager->persist($article);
 

@@ -1,10 +1,21 @@
-<div class="flex flex-col">
-  {% if not app.user %}
-    <a href="{{path('security_login')}}">Se connecter</a>
-  {% else %}
+<div class="flex flex-col justify-center align-items-center">
+  <div class="connexion-menu my-5">
+    {% if not app.user %}
+      <a href="{{path('security_login')}}">Se connecter</a>
+    {% else %}
 
-    <p>Vous êtes connecté en tant que
-      {{app.user.username}}</p>
-    <a href="{{path('security_logout')}}">Se déconnecter</a>
-  {% endif %}
+      <p>Vous êtes connecté en tant que
+        {{app.user.username}}</p>
+      <a href="{{path('security_logout')}}">Se déconnecter</a>
+    {% endif %}
+  </div>
+  <div class="language-menu">
+    {% for locale in locales %}
+      {% if locale != app.request.locale %}
+        <a href="{{ path('change_locale', {'locale': locale}) }}">{{ locale }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>
+
+<div class="flex flex-col"></div>
