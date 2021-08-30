@@ -10,7 +10,8 @@
       {{ encore_entry_link_tags('app') }}
 
       <!-- Renders a link tag (if your module requires any CSS) <link rel="stylesheet" href="/build/app.css"> -->
-
+      <link rel="stylesheet" href="/build/sass/knacss.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     {% endblock %}
 
     {% block javascripts %}{% endblock %}
@@ -18,12 +19,25 @@
 
   <body>
     <header>
-      <h1>Videogamehorses</h1>
-      <p>{% trans %}in english{% endtrans %}</p>
+      <a href="/">
+        <h1>Videogamehorses</h1>
+      </a>
     </header>
-
+    <nav class=" main-nav">
+      <ul class="flex justify-center ">
+        <li class="mx-6">
+          <a href="/article/list">{% trans %}Reviews{% endtrans %}</a>
+        </li>
+        <li class="mx-6">
+          <a href="">{% trans %}News{% endtrans %}</a>
+        </li>
+        <li class="mx-6">
+          <a href="/about">{% trans %}About{% endtrans %}</a>
+        </li>
+      </ul>
+    </nav>
     <main class="grid grid-cols-12 my-6 gap-5">
-      <section class="col-start-1 col-span-8 py-4 ">
+      <section class="col-start-1 col-span-8 py-4 px-4">
         {% block body %}
 
           {% block content %}
@@ -40,7 +54,10 @@
 
     </main>
     <footer>
-      <h1>Footer</h1>
+      <div class="grid grid-cols-2">
+        <p>Site web créé par Maurice Kurth</p>
+        <p>Dans le contexte d'un projet de fin d'études avec Symfony</p>
+      </div>
     </footer>
   </body>
 </html>

@@ -39,7 +39,8 @@ class ArticleFixtures extends Fixture
                     ->setContenu($content)
                     ->setCreatedAt($faker->dateTimeBetween('-6 months'))
                     ->setNote($faker->numberBetween(1, 5))
-                    ->setImage($faker->ImageUrl());
+                    ->setThumbnail($faker->ImageUrl())
+                    ->setLanguage('fr');
                 //Inscrire dans la bdd
 
                 $manager->persist($article);

@@ -6136,10 +6136,6 @@
   }
 }
 
-h1 {
-  color: #520606;
-}
-
 html,
 body {
   -webkit-box-sizing: border-box;
@@ -6166,27 +6162,45 @@ body {
 
 header {
   width: auto;
-  height: 150px;
+  height: 250px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: relative;
+}
+
+header a {
+  text-decoration: none;
+  z-index: 5;
+  margin-left: 3rem;
+  font-size: 48px;
+  -webkit-text-stroke: 1px black;
+}
+
+header:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: url("./include/images/got.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 85%;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-position: 30% 82%;
+  -webkit-filter: grayscale(30%);
+          filter: grayscale(30%);
 }
 
 footer {
   width: auto;
-  height: 150px;
+  height: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6197,7 +6211,7 @@ footer {
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: auto;
-  background: rgba(129, 13, 13, 0.7);
+  background: #454d5d;
 }
 
 main {
@@ -6215,15 +6229,15 @@ aside {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-height: 70vh;
+  max-height: 800px;
   background: rgba(129, 13, 13, 0.7);
 }
 
 section {
-  border: 5px solid white;
   /*  display: flex;
   align-items: center; 
   justify-content: center;*/
+  background-color: #333333;
 }
 
 h1,
@@ -6246,6 +6260,139 @@ form #form > div {
 
 form #form label {
   margin-right: 2rem;
+}
+
+.language-menu img {
+  height: 30px;
+  width: 30px;
+}
+
+.reseaux-sociaux {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.reseaux-sociaux i {
+  font-size: 42px;
+  margin: 1rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.reseaux-sociaux .fa-linkedin {
+  color: #2867b2;
+}
+
+.reseaux-sociaux .fa-github {
+  color: #24292f;
+}
+
+.main-nav {
+  background-color: #631111;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.main-nav ul {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.main-nav li {
+  list-style: none;
+}
+
+.main-nav a {
+  font-size: 36px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.sidebar h3 {
+  background-color: white;
+  color: #1f1919;
+  padding: 0.5rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.article--card {
+  margin: 1rem 0.5rem;
+  height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.article--card img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.article--card h3 {
+  position: absolute;
+  padding: 1rem;
+  bottom: 0;
+  background-color: #631111;
+}
+
+.article--card a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.card--first {
+  height: 300px;
+}
+
+.card--first img {
+  height: 200px;
+}
+
+.card--first h3 {
+  position: relative;
+  text-align: center;
+}
+
+.card--first p {
+  padding: 0 1rem;
+  margin: 0;
+}
+
+.btn {
+  background-color: white;
+  color: black;
+  padding: 0.5rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+a.btn:hover {
+  background-color: #1f1919;
+  color: white;
 }
 
 @font-face {

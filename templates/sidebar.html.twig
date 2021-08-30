@@ -1,20 +1,52 @@
-<div class="flex flex-col justify-center align-items-center">
-  <div class="connexion-menu my-5">
-    {% if not app.user %}
-      <a href="{{path('security_login')}}">Se connecter</a>
-    {% else %}
+<div class="sidebar flex flex-col justify-center align-items-center px-4">
 
-      <p>Vous êtes connecté en tant que
-        {{app.user.username}}</p>
-      <a href="{{path('security_logout')}}">Se déconnecter</a>
-    {% endif %}
-  </div>
-  <div class="language-menu">
+  <div class="language-menu flex justify-center align-items-center flex-col mt-5">
+    <h3 class="text-center mb-2">
+      {% trans %}
+      Change your language here :
+      {% endtrans %}</h3>
     {% for locale in locales %}
       {% if locale != app.request.locale %}
-        <a href="{{ path('change_locale', {'locale': locale}) }}">{{ locale }}</a>
+        <a class="mt-4" href="{{ path('change_locale', {'locale': locale}) }}">
+          <img src="{{ asset('/build/images/'~locale~'.png')}}" alt="">
+        </a>
       {% endif %}
     {% endfor %}
+  </div>
+
+  <div class="connexion-menu flex flex-col my-5">
+    {% if not app.user %}
+      <a class="btn my-4" href="{{path('security_login')}}">{% trans %}
+        Login
+        {% endtrans %}</a>
+      <a class="btn" href="{{path('security_registration')}}">{% trans %}
+        Create account
+        {% endtrans %}</a>
+    {% else %}
+
+      <p>{% trans %}
+        You are connected as
+        {% endtrans %}
+        {{app.user.username}}</p>
+      <a class="btn" href="{{path('security_logout')}}">{% trans %}
+        Logout
+        {% endtrans %}</a>
+    {% endif %}
+  </div>
+
+  <div class="reseaux-sociaux">
+    <a href="https://github.com/Maurice-kurth">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/maurice-kurth/">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+
+  <div class="sidebar-actus">
+    <h3>{% trans %}
+      Latest news
+      {% endtrans %}</h3>
   </div>
 </div>
 

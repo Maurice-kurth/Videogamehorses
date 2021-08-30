@@ -71,6 +71,11 @@ class Article
      */
     private $thumbnailFile;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $language;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -132,6 +137,15 @@ class Article
         return $this;
     }
 
+    public function getLanguage(): ?string
+    {
+        return $this->language;
+    }
+    public function setLanguage(string $language): self
+    {
+        $this->language = $language;
+        return $this;
+    }
     /**
      * @return Collection|Comment[]
      */

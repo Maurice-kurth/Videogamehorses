@@ -1,6 +1,7 @@
 #index:
 #    path: /index
 #    controller: App\Controller\DefaultController::index
+#
 
 accueil:
   path: /

@@ -1,0 +1,15 @@
+.btn {
+  background-color: white;
+  color: black;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+a.btn {
+  text-decoration: none;
+  &:hover {
+    background-color: $vgh-sombre;
+    color: white;
+  }
+}

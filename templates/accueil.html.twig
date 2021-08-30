@@ -2,22 +2,49 @@
 
 {% block body %}
   {% block content %}
-    <h2 class="mt-3 text-center">{% trans %}This is the homepage{% endtrans %}</h2>
+    <div class="">
+      <h2 class="mt-3 text-center">{% trans %}Welcome to Videogamehorses !
+        {% endtrans %}</h2>
 
-    <p>
-      Voici des articles :
-    </p>
+      <p>
+        {% trans %}
+        On this website you will find a
+        <b>
+          different
+        </b>
+        kind of videogame reviews. Because they are based on horses !
+        <br>
+        You should go to the
+        <a href="/about">about section</a>
+        if you want to find out why I did this.
+        <br>
+        Below, you will find the latest reviews I published.
+        {% endtrans %}
+      </p>
 
-    <div class="grid grid-cols-3">
-      {% for article in articles %}
+      <div class="grid grid-cols-2">
+        {% for article in articles %}
+          {% if loop.first %}
+            <div class="article--card card--first col-span-2">
+              <img src="/uploads/files/{{article.thumbnail}}" alt="{{article.titre}}">
+              <a href="{{path('article_show',{id:article.id})}}">
+                <h3>{{article.titre}}</h3>
+              </a>
+              <div>
+                <p>{{article.introduction}}</p>
+              </div>
+            {% else %}
+              <div class="article--card">
 
-        <div class="article--card">
-          <h3>{{article.titre}}</h3>
+                <img src="/uploads/files/{{article.thumbnail}}" alt="{{article.titre}}">
+                <a href="{{path('article_show',{id:article.id})}}">
+                  <h3>{{article.titre}}</h3>
+                </a>
+              {% endif %}
+            </div>
 
-          <a href="{{path('article_show',{id:article.id})}}" class="btn">Voir l'article</a>
+          {% endfor %}
         </div>
-
-      {% endfor %}
-    </div>
+      </div>
+    {% endblock %}
   {% endblock %}
-{% endblock %}

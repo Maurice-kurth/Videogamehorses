@@ -11,9 +11,19 @@ easy_admin:
           - { property: "introduction", type: "textarea" }
           - { property: "contenu", type: "fos_ckeditor" }
           - { property: "createdAt", type: "date" }
+          - {
+              property: "language",
+              label: "Langue",
+              type: "choice",
+              type_options:
+                {
+                  multiple: false,
+                  choices: { "Français": "fr", "Anglais": "en" },
+                },
+            }
           - { property: "thumbnailFile", type: "vich_image" }
       list:
-        fields: ["titre", "createdAt", "introduction"]
+        fields: ["titre", "createdAt", "introduction", "language"]
     Comment:
       class: App\Entity\Comment
     Category:
