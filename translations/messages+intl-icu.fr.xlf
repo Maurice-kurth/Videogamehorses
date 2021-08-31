@@ -13,6 +13,157 @@
         <source>in english</source>
         <target>en français</target>
       </trans-unit>
+      <trans-unit id="qDZo09i" resname="Welcome to Videogamehorses !">
+        <source>Welcome to Videogamehorses !</source>
+        <target>Bienvenue sur Videogamehorses !</target>
+      </trans-unit>
+      <trans-unit id="9JfbQhE" resname="On this website you will find a&#10;        &lt;b&gt;&#10;          different&#10;        &lt;/b&gt;&#10;        kind of videogame reviews. Because they are based on horses !&#10;        &lt;br&gt;&#10;        You should go to the&#10;        &lt;a href=&quot;/about&quot;&gt;about section&lt;/a&gt;&#10;        if you want to find out why I did this.&#10;        &lt;br&gt;&#10;        Below, you will find the latest reviews I published.">
+        <source>On this website you will find a
+        &lt;b&gt;
+          different
+        &lt;/b&gt;
+        kind of videogame reviews. Because they are based on horses !
+        &lt;br&gt;
+        You should go to the
+        &lt;a href="/about"&gt;about section&lt;/a&gt;
+        if you want to find out why I did this.
+        &lt;br&gt;
+        Below, you will find the latest reviews I published.</source>
+        <target><![CDATA[Sur ce site vous trouverez un type particulier de tests de jeux vidéos, parce qu'ils sont basés sur les chevaux ! 
+        Vous devriez aller dans la section <a href="/about">à propos </a> pour découvrir pourquoi j'ai fait cela.<br> Ci-dessous, vous trouverez les derniers tests que j'ai publiés.]]></target>
+      </trans-unit>
+      <trans-unit id="z1swNrz" resname="All reviews on the website">
+        <source>All reviews on the website</source>
+        <target>Tous les tests publiés</target>
+      </trans-unit>
+      <trans-unit id="7SNfOc9" resname="Rating :">
+        <source>Rating :</source>
+        <target>Note:</target>
+      </trans-unit>
+      <trans-unit id="i5I69Yw" resname="out of 5">
+        <source>out of 5</source>
+        <target>sur 5</target>
+      </trans-unit>
+      <trans-unit id="sa5iupG" resname="Comment section">
+        <source>Comment section</source>
+        <target>Les commentaires</target>
+      </trans-unit>
+      <trans-unit id="ut1pQd8" resname="Send comment">
+        <source>Send comment</source>
+        <target>Envoyer un commentaire</target>
+      </trans-unit>
+      <trans-unit id="P1GL5J2" resname="You can't comment if you're not logged in">
+        <source>You can't comment if you're not logged in</source>
+        <target>Vous ne pouvez pas commenter si vous n'êtes pas connecté</target>
+      </trans-unit>
+      <trans-unit id="hMt4cbd" resname="Reviews">
+        <source>Reviews</source>
+        <target>Tests</target>
+      </trans-unit>
+      <trans-unit id="Tvyg0Qx" resname="About">
+        <source>About</source>
+        <target>à propos</target>
+      </trans-unit>
+      <trans-unit id="vYlwZG0" resname="Login here">
+        <source>Login here</source>
+        <target>Connexion</target>
+      </trans-unit>
+      <trans-unit id="2M9Jh03" resname="Email adress">
+        <source>Email adress</source>
+        <target>Adresse e-mail</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="nWMiwfT" resname="Login">
+        <source>Login</source>
+        <target>Connexion</target>
+      </trans-unit>
+      <trans-unit id="JikDho6" resname="Sign up here">
+        <source>Sign up here</source>
+        <target>Inscrivez-vous sur cette page</target>
+      </trans-unit>
+      <trans-unit id="XiuOllA" resname="Sign up">
+        <source>Sign up</source>
+        <target>Inscription</target>
+      </trans-unit>
+      <trans-unit id="eYyizhi" resname="Create account">
+        <source>Create account</source>
+        <target>Créer un compte</target>
+      </trans-unit>
+      <trans-unit id="D_jrvPb" resname="You are connected as">
+        <source>You are connected as</source>
+        <target>Vous êtes connecté en tant que</target>
+      </trans-unit>
+      <trans-unit id="0FJ_Sz1" resname="Logout">
+        <source>Logout</source>
+        <target>Déconnexion</target>
+      </trans-unit>
+      <trans-unit id="1zP4HaB" resname="Change your language here :">
+        <source>Change your language here :</source>
+        <target>Changez la langue du site ici :</target>
+      </trans-unit>
+      <trans-unit id="904jwh9" resname="Latest news">
+        <source>Latest news</source>
+        <target>Réseaux sociaux</target>
+      </trans-unit>
+      <trans-unit id="MxKEogp" resname="About this website">
+        <source>About this website</source>
+        <target>À propos de ce site web</target>
+      </trans-unit>
+      <trans-unit id="xZKJmMD" resname="&lt;p&gt;&#10;    Hello ! I am happy to see you are interested in this project.&#10;  &lt;/p&gt;&#10;&#10;  &lt;p&gt;&#10;    This website stems from a project I completed for my Master’s degree at the University of Strasbourg.&lt;/p&gt;&#10;  &lt;p&gt;The goal was to create a multilingual website for yourself, either as a portfolio or for a hobby you enjoy.&#10;  &lt;/p&gt;&#10;  &lt;p&gt;&#10;    Because two of my hobbies include horse riding and videogames, I decided to merge the two and come up with somewhat of a unique concept, Videogamehorses ! The goal here is to look at popular games (mostly RPGs) and analyze how well they designed horses in those games.&#10;  &lt;/p&gt;&#10;  &lt;p&gt;&#10;    I think horseriding is a great tool for immersion and transportation in video games, capable of giving you a trusty companion to ride along. Horses are also usually very majestic and trustworthy, which makes them a great partner for adventure.&#10;  &lt;/p&gt;&#10;  &lt;p&gt;&#10;    In order to give myself an additional challenge, I developed this website with Symfony, a PHP framework which adds potential but also complexity to any project.&#10;  &lt;/p&gt;&#10;  &lt;p&gt;&#10;    This website has room for a lot of improvement and I might keep working on it to gather new skills, I will figure this out in the future depending on how much free time I have.&#10;  &lt;/p&gt;&#10;  &lt;p&gt;&#10;    Anyways, I hope you enjoy reading my reviews and maybe leave a comment or follow me on social media !&#10;  &lt;/p&gt;&#10;&#10;  &lt;p class=&quot;text-right&quot;&gt;Maurice&lt;/p&gt;">
+        <source>&lt;p&gt;
+    Hello ! I am happy to see you are interested in this project.
+  &lt;/p&gt;
+
+  &lt;p&gt;
+    This website stems from a project I completed for my Master’s degree at the University of Strasbourg.&lt;/p&gt;
+  &lt;p&gt;The goal was to create a multilingual website for yourself, either as a portfolio or for a hobby you enjoy.
+  &lt;/p&gt;
+  &lt;p&gt;
+    Because two of my hobbies include horse riding and videogames, I decided to merge the two and come up with somewhat of a unique concept, Videogamehorses ! The goal here is to look at popular games (mostly RPGs) and analyze how well they designed horses in those games.
+  &lt;/p&gt;
+  &lt;p&gt;
+    I think horseriding is a great tool for immersion and transportation in video games, capable of giving you a trusty companion to ride along. Horses are also usually very majestic and trustworthy, which makes them a great partner for adventure.
+  &lt;/p&gt;
+  &lt;p&gt;
+    In order to give myself an additional challenge, I developed this website with Symfony, a PHP framework which adds potential but also complexity to any project.
+  &lt;/p&gt;
+  &lt;p&gt;
+    This website has room for a lot of improvement and I might keep working on it to gather new skills, I will figure this out in the future depending on how much free time I have.
+  &lt;/p&gt;
+  &lt;p&gt;
+    Anyways, I hope you enjoy reading my reviews and maybe leave a comment or follow me on social media !
+  &lt;/p&gt;
+
+  &lt;p class="text-right"&gt;Maurice&lt;/p&gt;</source>
+        <target><![CDATA[<p>
+    Bonjour, je suis heureux de voir que vous êtes intéressé par ce projet.
+  </p>
+
+  <p>
+    Ce site web est issu d'un projet que j'ai réalisé pour mon Master à l'Université de Strasbourg. Le but était de créer un site web multilingue pour vous-même, soit comme portfolio, soit pour un hobby que vous aimez. 
+</p>
+  <p>Comme l'équitation et les jeux vidéo sont deux de mes passe-temps, j'ai décidé de fusionner les deux et de créer un concept quelque peu unique, Videogamehorses ! 
+
+  </p>
+  <p>
+L'objectif est d'examiner des jeux populaires (principalement des RPG) et d'analyser la façon dont ils ont conçu les chevaux dans ces jeux. Je pense que l'équitation est un excellent outil d'immersion et de transport dans les jeux vidéo, capable de vous donner un compagnon de confiance à chevaucher. Les chevaux sont aussi généralement très majestueux et dignes de confiance, ce qui en fait un partenaire idéal pour l'aventure.
+  </p>
+  <p>
+Afin de me donner un défi supplémentaire, j'ai développé ce site avec Symfony, un framework PHP qui ajoute du potentiel mais aussi de la complexité à tout projet. Ce site peut encore être amélioré et il se peut que je continue à travailler dessus pour acquérir de nouvelles compétences, je le découvrirai dans le futur en fonction du temps libre dont je disposerai.
+  </p>
+  <p>
+Quoi qu'il en soit, j'espère que vous appréciez de lire mes critiques et peut-être laisser un commentaire ou me suivre sur les médias sociaux !
+  </p>
+  
+  <p class="text-right">Maurice</p>]]></target>
+      </trans-unit>
+      <trans-unit id="OnhpU4i" resname="Home">
+        <source>Home</source>
+        <target>Accueil</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

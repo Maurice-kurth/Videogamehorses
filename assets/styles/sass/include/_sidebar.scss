@@ -1,0 +1,15 @@
+.sidebar h3 {
+  background-color: white;
+  color: $vgh-dark;
+  padding: 0.5rem 1.5rem;
+  margin-top: 1rem;
+}
+aside {
+  //border: 5px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 800px;
+  background: rgba(129, 13, 13, 0.7);
+  max-width: auto;
+}

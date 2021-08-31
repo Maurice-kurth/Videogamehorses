@@ -3,16 +3,22 @@
 {% block body %}
   {% block content %}
     <h1>{{article.titre}}</h1>
-    {{dump(article)}}
-    <img src="/uploads/files/{{article.thumbnail}}" alt="{{article.titre}}">
-    <p>{{article.introduction}}</p>
-    {{article.contenu|raw}}
+    <div class="article--image">
+      <img src="/uploads/files/{{article.thumbnail}}" alt="{{article.titre}}">
+    </div>
+    <p class="article--introduction">{{article.introduction}}</p>
 
-    <p>
-      Note du jeu :
-      {{article.note}}</p>
+    <div class="article--content">
+      {{article.contenu|raw}}</div>
 
-    <h1>Les Commentaires</h1>
+    <p class="article--note">
+      {% trans %}Rating :{% endtrans %}
+      <span>{{article.note}}</span>
+      {% trans %}out of 5{% endtrans %}
+    </p>
+
+    <hr>
+    <h2>{% trans %}Comment section{% endtrans %}</h2>
 
     {% for comment in article.comments %}
 
@@ -22,12 +28,18 @@
       </div>
     {% endfor %}
 
-    <div class="comment-form">
-      {{form_start(commentForm)}}
-      {{form_row(commentForm.author)}}
-      {{form_row(commentForm.content)}}
-      <button type="submit" class="btn btn--primary">Envoyer le commentaire</button>
-      {{form_end(commentForm)}}
-    </div>
+    {% if app.user %}
+      <div class="comment-form">
+        {{form_start(commentForm)}}
+        {{form_row(commentForm.author)}}
+        {{form_row(commentForm.content)}}
+        <button type="submit" class="btn btn--primary">{% trans %}Send comment{% endtrans %}</button>
+        {{form_end(commentForm)}}
+      </div>
+    {% else %}
+      <div>
+        <h3>{% trans %}You can't comment if you're not logged in{% endtrans %}</h3>
+      </div>
+    {% endif %}
   {% endblock %}
 {% endblock %}

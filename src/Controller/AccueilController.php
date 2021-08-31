@@ -17,7 +17,7 @@ class AccueilController extends AbstractController
         //$articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
         $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(
             ['language' => $locale],
-            null, 5, null
+            null, 3, null
         );
 
         return $this->render('accueil.html.twig', ['articles' => $articles]);

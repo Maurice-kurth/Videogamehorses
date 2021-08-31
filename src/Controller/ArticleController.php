@@ -57,11 +57,14 @@ class ArticleController extends AbstractController
     /**
      * @Route("/article/list", name="article_list")
      */
-    function list(ArticleRepository $articleRepository): Response {
-        $repository = $this->getDoctrine()->getRepository(Article::class);
+    function list(Request $request, ArticleRepository $articleRepository): Response {
 
+        // $locale est le string de la langue actuelle
+        $locale = $request->getLocale();
         // look for *all* Article objects
-        $articles = $repository->findAll();
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(
+            ['language' => $locale],
+        );
 
         return $this->render('article/list.html.twig', ['articles' => $articles]);
 

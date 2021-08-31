@@ -1,9 +1,7 @@
 /* Spacers utility classes */
 
 // loop for each spacer
-@each $key,
-$value in $spacers {
-
+@each $key, $value in $spacers {
   .p-#{$key} {
     padding: $value;
   }
@@ -65,70 +63,69 @@ $value in $spacers {
   }
 
   // loop for each breakpoint
-  @each $bp,
-  $bpv in $breakpoints {
+  @each $bp, $bpv in $breakpoints {
+    @each $key, $value in $spacers {
+      @media (min-width: #{$bpv}) {
+        .#{$bp}\:p-#{$key} {
+          padding: $value;
+        }
 
-    @media (min-width: #{$bpv}) {
-      .#{$bp}\:p-#{$key} {
-        padding: $value;
-      }
+        .#{$bp}\:pt-#{$key} {
+          padding-top: $value;
+        }
 
-      .#{$bp}\:pt-#{$key} {
-        padding-top: $value;
-      }
+        .#{$bp}\:pr-#{$key} {
+          padding-right: $value;
+        }
 
-      .#{$bp}\:pr-#{$key} {
-        padding-right: $value;
-      }
+        .#{$bp}\:pb-#{$key} {
+          padding-bottom: $value;
+        }
 
-      .#{$bp}\:pb-#{$key} {
-        padding-bottom: $value;
-      }
+        .#{$bp}\:pl-#{$key} {
+          padding-left: $value;
+        }
 
-      .#{$bp}\:pl-#{$key} {
-        padding-left: $value;
-      }
+        .#{$bp}\:px-#{$key} {
+          padding-left: $value;
+          padding-right: $value;
+        }
 
-      .#{$bp}\:px-#{$key} {
-        padding-left: $value;
-        padding-right: $value;
-      }
+        .#{$bp}\:py-#{$key} {
+          padding-top: $value;
+          padding-bottom: $value;
+        }
 
-      .#{$bp}\:py-#{$key} {
-        padding-top: $value;
-        padding-bottom: $value;
-      }
+        .#{$bp}\:m-#{$key} {
+          margin: $value;
+        }
 
-      .#{$bp}\:m-#{$key} {
-        margin: $value;
-      }
+        .#{$bp}\:mt-#{$key} {
+          margin-top: $value;
+        }
 
-      .#{$bp}\:mt-#{$key} {
-        margin-top: $value;
-      }
+        .#{$bp}\:mr-#{$key} {
+          margin-right: $value;
+        }
 
-      .#{$bp}\:mr-#{$key} {
-        margin-right: $value;
-      }
+        .#{$bp}\:mb-#{$key} {
+          margin-bottom: $value;
+        }
 
-      .#{$bp}\:mb-#{$key} {
-        margin-bottom: $value;
-      }
+        .#{$bp}\:ml-#{$key} {
+          margin-left: $value;
+        }
 
-      .#{$bp}\:ml-#{$key} {
-        margin-left: $value;
-      }
+        .#{$bp}\:mx-#{$key} {
+          margin-left: $value;
+          margin-right: $value;
+        }
 
-      .#{$bp}\:mx-#{$key} {
-        margin-left: $value;
-        margin-right: $value;
-      }
-
-      .#{$bp}\:my-#{$key} {
-        margin-top: $value;
-        margin-bottom: $value;
+        .#{$bp}\:my-#{$key} {
+          margin-top: $value;
+          margin-bottom: $value;
+        }
       }
     }
   }
-
 }

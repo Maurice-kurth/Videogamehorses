@@ -1,0 +1,62 @@
+.article--image img {
+  max-height: 300px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.article--introduction {
+  font-size: 24px;
+  &:after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 80%;
+    text-align: center;
+    background-color: white;
+    position: relative;
+    top: 100%;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+  }
+}
+
+.article--content {
+  color: white !important;
+  img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+  p {
+    color: white !important;
+  }
+}
+.article--note {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
+    background-color: $vgh-red;
+    padding: 1rem;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+hr {
+  border-top: 3px solid white;
+
+  width: 80%;
+  margin: 2rem auto;
+}

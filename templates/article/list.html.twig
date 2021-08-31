@@ -3,17 +3,22 @@
 {% block body %}
   {% block content %}
 
-    <div class="grid grid-cols-6 mx-4 ">
-      <h1 class="col-span-6 text-center">Liste des articles :
-      </h1>
+    <h1 class="col-span-6 text-center">{% trans %}
+      All reviews on the website
+      {% endtrans %}
+    </h1>
+    <div class="grid grid-cols-2">
       {% for article in articles %}
-        <div class="article-solo flex flex-col col-span-3">
-          <img src="{{article.image}}" alt="">
-          <h3 class="text-center">{{article.titre|e}}</h3>
-          <p>{{article.introduction}}</p>
+        <div class="article--card col-span-1">
+
+          <img src="/uploads/files/{{article.thumbnail}}" alt="{{article.titre}}">
+          <a href="{{path('article_show',{id:article.id})}}">
+            <h3>{{article.titre}}</h3>
+          </a>
         </div>
       {% endfor %}
 
     </div>
+
   {% endblock %}
 {% endblock %}

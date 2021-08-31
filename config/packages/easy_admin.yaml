@@ -10,7 +10,8 @@ easy_admin:
           - { property: "titre", type: "text" }
           - { property: "introduction", type: "textarea" }
           - { property: "contenu", type: "fos_ckeditor" }
-          - { property: "createdAt", type: "date" }
+          - { property: "createdAt", type: "datetime" }
+          - { property: "note", type: "text" }
           - {
               property: "language",
               label: "Langue",
@@ -24,10 +25,7 @@ easy_admin:
           - { property: "thumbnailFile", type: "vich_image" }
       list:
         fields: ["titre", "createdAt", "introduction", "language"]
-    Comment:
-      class: App\Entity\Comment
-    Category:
-      class: App\Entity\Category
+
   design:
     form_theme:
       - "@EasyAdmin/form/bootstrap_4.html.twig"

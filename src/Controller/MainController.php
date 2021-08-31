@@ -19,4 +19,13 @@ class MainController extends AbstractController
         // On revient sur la page précédente
         return $this->redirect($request->headers->get('referer'));
     }
+
+    /**
+     * @Route("/about")
+     */
+    public function aboutPage()
+    {
+
+        return $this->render('about.html.twig');
+    }
 }

@@ -9,7 +9,7 @@
 @if variable_exists(grid-columns) {
   $grid-columns: $grid-columns !global;
 } @else {
-  $grid-columns: 6 !global;
+  $grid-columns: 12 !global;
 }
 
 @if variable_exists(gaps) {
@@ -17,11 +17,14 @@
 } @else {
   $gaps: (
     "0": 0,
-    "5": 0.313rem,
-    "10": 0.625rem,
-    "16": 1rem,
-    "20": 1.25rem,
-    "36": 2.25rem,
+    "1": 0.5rem,
+    "2": 0.75rem,
+    "3": 1rem,
+    "4": 1.5rem,
+    "5": 2rem,
+    "6": 3rem,
+    "7": 5rem,
+    "auto": auto,
   ) !global;
 }
 
@@ -29,9 +32,9 @@
   $breakpoints: $breakpoints !global;
 } @else {
   $breakpoints: (
-    sm: 576px,
-    md: 992px,
-    lg: 1330px,
+    sm: 360px,
+    md: 500px,
+    lg: 800px,
   ) !global;
 }
 

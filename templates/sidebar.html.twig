@@ -1,19 +1,5 @@
 <div class="sidebar flex flex-col justify-center align-items-center px-4">
 
-  <div class="language-menu flex justify-center align-items-center flex-col mt-5">
-    <h3 class="text-center mb-2">
-      {% trans %}
-      Change your language here :
-      {% endtrans %}</h3>
-    {% for locale in locales %}
-      {% if locale != app.request.locale %}
-        <a class="mt-4" href="{{ path('change_locale', {'locale': locale}) }}">
-          <img src="{{ asset('/build/images/'~locale~'.png')}}" alt="">
-        </a>
-      {% endif %}
-    {% endfor %}
-  </div>
-
   <div class="connexion-menu flex flex-col my-5">
     {% if not app.user %}
       <a class="btn my-4" href="{{path('security_login')}}">{% trans %}
@@ -32,6 +18,20 @@
         Logout
         {% endtrans %}</a>
     {% endif %}
+  </div>
+
+  <div class="language-menu flex justify-center align-items-center flex-col mt-5">
+    <h3 class="text-center mb-2">
+      {% trans %}
+      Change your language here :
+      {% endtrans %}</h3>
+    {% for locale in locales %}
+      {% if locale != app.request.locale %}
+        <a class="mt-4" href="{{ path('change_locale', {'locale': locale}) }}">
+          <img src="/uploads/files/{{locale}}.png" alt="">
+        </a>
+      {% endif %}
+    {% endfor %}
   </div>
 
   <div class="reseaux-sociaux">

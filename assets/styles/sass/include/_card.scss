@@ -15,10 +15,12 @@
     padding: 1rem;
     bottom: 0;
     background-color: $vgh-red;
+    margin: 0;
+    max-width: 100%;
   }
   a {
     display: block;
-    width: 100%;
+    max-width: 100%;
     text-decoration: none;
   }
 }
@@ -34,7 +36,7 @@
     text-align: center;
   }
   p {
-    padding: 0 1rem;
+    padding: 1rem 1rem 0;
     margin: 0;
   }
 }

@@ -56,16 +56,12 @@ footer {
 
 main {
   margin: auto;
-  width: $large;
+  max-width: $large;
+  @include respond-to("large") {
+    max-width: 100%;
+  }
 }
-aside {
-  //border: 5px solid white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-height: 800px;
-  background: rgba(129, 13, 13, 0.7);
-}
+
 section {
   //border: 5px solid white;
   /*  display: flex;
@@ -132,20 +128,27 @@ $vgh-dark: #1f1919;
     margin-left: 0;
     padding-left: 0;
     list-style: none;
+    width: 100%;
+    @include respond-to("large") {
+      width: 100%;
+      li {
+        width: 100%;
+      }
+    }
   }
+
   li {
     list-style: none;
+
+    text-align: center;
   }
   a {
     font-size: 36px;
     font-weight: bold;
     text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
-}
-
-.sidebar h3 {
-  background-color: white;
-  color: $vgh-dark;
-  padding: 0.5rem 1.5rem;
-  margin-top: 1rem;
 }
